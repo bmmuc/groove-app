@@ -381,3 +381,29 @@ class Database():
         return {
             "musics": items
         }
+    
+    def get_by_album(self, collection_name: str, album: str) -> list:
+        """
+        Retrieve all items of a collection by album
+
+        Parameters:
+        - collection_name: str
+            The name of the collection where the item is stored
+        - album: str
+            The album of the item to retrieve
+
+        Returns:
+        - list:
+            A list of all items in the collection.
+
+        """
+
+        collection: Collection = self.db[collection_name]
+        items = list(collection.find({"title": album}))
+       
+        for itm in items:
+            del itm["_id"]
+        
+        return {
+            "musics": items
+        }

@@ -86,16 +86,6 @@ def get_by_artist(artist):
 
     return song_get_response
 
-@router.get(
-    "/songs_by_album/{album}",
-    response_model=MusicList,
-    response_class=JSONResponse,
-    summary="get all songs",
-)
-# def get_by_album(album):
-#     song_get_response = MusicService.get_by_album(album)
-
-#     return song_get_response
 
 
 # Edit a song's genre

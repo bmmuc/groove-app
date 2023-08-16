@@ -53,9 +53,5 @@ class MusicService:
         
         return songs
     
-    # @staticmethod
-    # def get_by_album(album: str):
-    #     songs = db.get_by_album('musicas', album)
-        
-    #     return songs
+    
     
