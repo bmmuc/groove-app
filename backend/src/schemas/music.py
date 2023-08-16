@@ -10,9 +10,10 @@ class MusicModel(BaseModel):
     release_year: int
 
 class MusicGet(BaseModel):
-    name: str
+    title: str
     genre: str
     artist: str
+    release_year: int
 
 class SongCreateModel(BaseModel):
     title: str

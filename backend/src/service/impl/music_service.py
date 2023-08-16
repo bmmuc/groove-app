@@ -34,3 +34,28 @@ class MusicService:
         deleted_song = db.delete('musicas', id)
 
         return deleted_song
+
+    @staticmethod
+    def get_by_year(year: int):
+        songs = db.get_by_year('musicas', year)
+        
+        return songs
+    
+    @staticmethod
+    def get_by_genre(genre: str):
+        songs = db.get_by_genre('musicas', genre)
+        
+        return songs
+    
+    @staticmethod
+    def get_by_artist(artist: str):
+        songs = db.get_by_artist('musicas', artist)
+        
+        return songs
+    
+    # @staticmethod
+    # def get_by_album(album: str):
+    #     songs = db.get_by_album('musicas', album)
+        
+    #     return songs
+    

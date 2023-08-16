@@ -1,5 +1,5 @@
 from fastapi import APIRouter, status, HTTPException
-from src.schemas.music import MusicGet, MusicModel, MusicDelete
+from src.schemas.music import MusicGet, MusicModel, MusicDelete, MusicList
 from starlette.responses import JSONResponse
 
 from src.service.impl.music_service import MusicService
@@ -52,6 +52,50 @@ def add_song(song: SongCreateModel):
 def delete_song(song_id: str):
     song_delete_response = MusicService.delete_song(song_id)
     return song_delete_response
+
+@router.get(
+    "/songs_by_year/{year}",
+    response_model=MusicList,
+    response_class=JSONResponse,
+    summary="get all songs",
+)
+def get_by_year(year):
+    song_get_response = MusicService.get_by_year(year)
+
+    return song_get_response
+
+@router.get(
+    "/songs_by_genre/{genre}",
+    response_model=MusicList,
+    response_class=JSONResponse,
+    summary="get all songs",
+)
+def get_by_genre(genre):
+    song_get_response = MusicService.get_by_genre(genre)
+
+    return song_get_response
+
+@router.get(
+    "/songs_by_artist/{artist}",
+    response_model=MusicList,
+    response_class=JSONResponse,
+    summary="get all songs",
+)
+def get_by_artist(artist):
+    song_get_response = MusicService.get_by_artist(artist)
+
+    return song_get_response
+
+@router.get(
+    "/songs_by_album/{album}",
+    response_model=MusicList,
+    response_class=JSONResponse,
+    summary="get all songs",
+)
+# def get_by_album(album):
+#     song_get_response = MusicService.get_by_album(album)
+
+#     return song_get_response
 
 
 # Edit a song's genre

@@ -302,3 +302,82 @@ class Database():
             A list of all items in the collection.
 
         """
+
+    def get_by_year(self, collection_name: str, year: int) -> list:
+        """
+        Retrieve all items of a collection by year
+
+        Parameters:
+        - collection_name: str
+            The name of the collection where the item is stored
+        - year: str
+            The year of the item to retrieve
+
+        Returns:
+        - list:
+            A list of all items in the collection.
+
+        """
+
+        collection: Collection = self.db[collection_name]
+        year = int(year) 
+        items = list(collection.find({"release_year": year}))
+       
+        for itm in items:
+            del itm["_id"]
+        
+        return {
+            "musics": items
+        }
+    
+    def get_by_genre(self, collection_name: str, genre: str) -> list:
+        """
+        Retrieve all items of a collection by genre
+
+        Parameters:
+        - collection_name: str
+            The name of the collection where the item is stored
+        - genre: str
+            The genre of the item to retrieve
+
+        Returns:
+        - list:
+            A list of all items in the collection.
+
+        """
+
+        collection: Collection = self.db[collection_name]
+        items = list(collection.find({"genre": genre}))
+       
+        for itm in items:
+            del itm["_id"]
+        
+        return {
+            "musics": items
+        }
+    
+    def get_by_artist(self, collection_name: str, artist: str) -> list:
+        """
+        Retrieve all items of a collection by artist
+
+        Parameters:
+        - collection_name: str
+            The name of the collection where the item is stored
+        - artist: str
+            The artist of the item to retrieve
+
+        Returns:
+        - list:
+            A list of all items in the collection.
+
+        """
+
+        collection: Collection = self.db[collection_name]
+        items = list(collection.find({"artist": artist}))
+       
+        for itm in items:
+            del itm["_id"]
+        
+        return {
+            "musics": items
+        }
