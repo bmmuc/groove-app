@@ -327,7 +327,7 @@ class Database():
             del itm["_id"]
         
         return {
-            "musics": items
+            "songs": items
         }
     
     def get_by_genre(self, collection_name: str, genre: str) -> list:
@@ -353,7 +353,7 @@ class Database():
             del itm["_id"]
         
         return {
-            "musics": items
+            "songs": items
         }
     
     def get_by_artist(self, collection_name: str, artist: str) -> list:
@@ -374,12 +374,14 @@ class Database():
 
         collection: Collection = self.db[collection_name]
         items = list(collection.find({"artist": artist}))
+        print(items)
+
        
         for itm in items:
             del itm["_id"]
         
         return {
-            "musics": items
+            "songs": items
         }
     
     def get_by_album(self, collection_name: str, album: str) -> list:
@@ -405,5 +407,5 @@ class Database():
             del itm["_id"]
         
         return {
-            "musics": items
+            "songs": items
         }

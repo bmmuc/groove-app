@@ -1,13 +1,13 @@
 from src.schemas.response import HTTPResponses, HttpResponseModel
-from src.schemas.music import SongCreateModel
+from src.schemas.song import SongCreateModel
 from src.db.__init__ import database as db
 
 
-class MusicService:
+class SongService:
 
     @staticmethod
     def get_song(song_id: str):
-        song = db.get_by_id('musicas', song_id)
+        song = db.get_by_id('songs', song_id)
         print('*******************')
         print(song)
         print('*******************')
@@ -16,13 +16,13 @@ class MusicService:
 
     @staticmethod
     def add_song(song: SongCreateModel):
-        added_song = db.add('musicas', song)
+        added_song = db.add('songs', song)
 
         return added_song
 
     @staticmethod
     def edit_song(id: str, song: SongCreateModel):
-        edited_song = db.edit('musicas', id, song)
+        edited_song = db.edit('songs', id, song)
         print('*******************')
         print(edited_song)
         print('*******************')
@@ -31,25 +31,25 @@ class MusicService:
 
     @staticmethod
     def delete_song(id: str):
-        deleted_song = db.delete('musicas', id)
+        deleted_song = db.delete('songs', id)
 
         return deleted_song
 
     @staticmethod
     def get_by_year(year: int):
-        songs = db.get_by_year('musicas', year)
+        songs = db.get_by_year('songs', year)
         
         return songs
     
     @staticmethod
     def get_by_genre(genre: str):
-        songs = db.get_by_genre('musicas', genre)
+        songs = db.get_by_genre('songs', genre)
         
         return songs
     
     @staticmethod
     def get_by_artist(artist: str):
-        songs = db.get_by_artist('musicas', artist)
+        songs = db.get_by_artist('songs', artist)
         
         return songs
     
