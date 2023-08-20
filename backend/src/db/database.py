@@ -122,7 +122,7 @@ class Database():
 
         collection: Collection = self.db[collection_name]
 
-        items = list(collection.find({}, {"_id": 0}))
+        items = list(collection.find({}))
 
         return items
 
@@ -320,11 +320,15 @@ class Database():
         """
 
         collection: Collection = self.db[collection_name]
-        year = int(year) 
+        year = int(year)
         items = list(collection.find({"release_year": year}))
-       
-        for itm in items:
-            del itm["_id"]
+        print("------------")
+        print(collection)
+        print(year)
+        print(items)
+        print("------------")
+        # for itm in items:
+        #     del itm["_id"]
         
         return {
             "songs": items
@@ -349,8 +353,8 @@ class Database():
         collection: Collection = self.db[collection_name]
         items = list(collection.find({"genre": genre}))
        
-        for itm in items:
-            del itm["_id"]
+        # for itm in items:
+        #     del itm["_id"]
         
         return {
             "songs": items
@@ -377,13 +381,12 @@ class Database():
         print(items)
 
        
-        for itm in items:
-            del itm["_id"]
+        # for itm in items:
+        #     del itm["_id"]
         
         return {
             "songs": items
         }
-    
     def get_by_album(self, collection_name: str, album: str) -> list:
         """
         Retrieve all items of a collection by album
@@ -402,9 +405,9 @@ class Database():
 
         collection: Collection = self.db[collection_name]
         items = list(collection.find({"title": album}))
-       
-        for itm in items:
-            del itm["_id"]
+
+        # for itm in items:
+        #     del itm["_id"]
         
         return {
             "songs": items

@@ -37,7 +37,7 @@ def test_buscar_musicas_por_genero_existente():
 def test_buscar_musicas_por_ano_de_lancamento():
     # Dado que o SongService retorna as músicas "Lover" e "Cruel Summer" para o ano de lançamento 2019
 
-    SongService.get_by_release_year = MagicMock(return_value={
+    SongService.get_by_year = MagicMock(return_value={
         "songs": [
             {"title": "Lover", "artist": "Taylor Swift", "genre": "Pop", "release_year": 2019},
             {"title": "Cruel Summer", "artist": "Taylor Swift", "genre": "Pop", "release_year": 2019}

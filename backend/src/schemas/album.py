@@ -1,11 +1,11 @@
-from typing import Optional
+from typing import Optional, List
 from datetime import datetime
 from pydantic import BaseModel
 
 class AlbumModel(BaseModel):
     title: str
     artist: str
-    year_released: int
+    release_year: int
 
 class AlbumGet(BaseModel):
     name: str
@@ -14,10 +14,10 @@ class AlbumGet(BaseModel):
 class AlbumCreateModel(BaseModel):
     title: str
     artist: str
-    year_released: int
+    release_year: int
 
 class AlbumList(BaseModel):
-    albums: list[AlbumGet]
+    albums: List[AlbumGet]
 
 class AlbumDelete(BaseModel):
     id: str
