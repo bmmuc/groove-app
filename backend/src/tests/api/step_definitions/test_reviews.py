@@ -18,9 +18,11 @@ def test_add_review(client: TestClient):
     mock_response = review_create_data.copy()
     ReviewService.create_review = MagicMock(return_value=mock_response)
 
-    # Adjust the endpoint as needed
+
     response = client.post("/reviews/create", json=review_create_data)
 
+    assert response.status_code == 200
+    assert response.json() == mock_response
 # Your existing test code...
 
 
