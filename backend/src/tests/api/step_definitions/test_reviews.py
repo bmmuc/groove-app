@@ -23,7 +23,6 @@ def test_add_review(client: TestClient):
 
     assert response.status_code == 200
     assert response.json() == mock_response
-# Your existing test code...
 
 
 def test_get_reviews(client: TestClient):
