@@ -20,7 +20,8 @@ class SongService:
     @staticmethod
     def add_song(song: SongCreateModel):
         added_song = db.add('songs', song)
-
+        if not added_song:
+            return HttpResponseModel(HTTPResponses.INTERNAL_SERVER_ERROR, "Erro ao adicionar musica")
         return added_song
 
     @staticmethod
